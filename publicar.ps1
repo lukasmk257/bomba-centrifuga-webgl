@@ -26,7 +26,7 @@ try {
 if (-not (Test-Path .git)) { git init -q -b main }
 git add -A
 git -c user.name='Luis Marroquin' -c user.email='lc.marroquin25@gmail.com' commit -q -m 'Build WebGL parcheado, snippet para systeme.io y demo'
-git remote remove origin 2>$null
+if (git remote) { git remote remove origin }
 git remote add origin "https://$user@github.com/$user/$repo.git"
 git push -u origin main
 
